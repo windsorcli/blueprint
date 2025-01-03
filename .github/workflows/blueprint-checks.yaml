@@ -10,14 +10,6 @@ on:
     #   envPAT:  # Name of the secret
     #     required: true  # Specifies that this secret is mandatory
 
-  push:
-    branches:
-      - main
-      - workflows
-  pull_request:
-    branches:
-      - main
-
 jobs:
 
   yamllint:
