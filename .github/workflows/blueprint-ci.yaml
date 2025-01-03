@@ -70,14 +70,25 @@ jobs:
           aqua install
           aqua list
 
+      - name: Check for pyproject.toml
+        id: check_pyproject
+        run: |
+          if [ -f "pyproject.toml" ]; then
+            echo "pyproject_exists=true" >> $GITHUB_ENV
+          else
+            echo "pyproject_exists=false" >> $GITHUB_ENV
+
       - name: Install Poetry
+        if: ${{ env.pyproject_exists == 'true' }}
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
   
       - name: Add Poetry Bin to PATH
+        if: ${{ env.pyproject_exists == 'true' }}
         run: echo "$HOME/.local/bin" >> $GITHUB_PATH
   
       - name: Install dependencies
+        if: ${{ env.pyproject_exists == 'true' }}
         run: |
           poetry install
           poetry show --tree
