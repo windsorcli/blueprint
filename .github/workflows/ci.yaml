@@ -4,13 +4,12 @@ on:
   push:
     branches:
       - main
-      - workflows
   pull_request:
     branches:
       - main
 
 env:
-  windsorblueprint_version: latest
+  windsorblueprint_version: main
 
 jobs:
   # Blueprint Checks
