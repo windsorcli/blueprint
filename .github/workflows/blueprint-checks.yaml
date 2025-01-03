@@ -1,3 +1,7 @@
+# This file is intended to be used only by the "blueprint template" repository.
+# It is left here solely for reference purposes. If you wish, feel free to delete this file.
+# Calls to these files should be made using the "uses" statement from the ci.yaml.
+
 name: BLUEPRINT-CHECKS
 
 on:
@@ -9,14 +13,6 @@ on:
     # secrets:  # Defines the secrets that can be passed from the caller workflow
     #   envPAT:  # Name of the secret
     #     required: true  # Specifies that this secret is mandatory
-
-  push:
-    branches:
-      - main
-      - workflows
-  pull_request:
-    branches:
-      - main
 
 jobs:
 
