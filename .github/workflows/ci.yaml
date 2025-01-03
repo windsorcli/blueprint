@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - workflows
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  blueprint-checks:
+      uses: windsorcli/blueprint/.github/workflows/blueprint-checks.yaml@main
+      # with:
+      #   config-path: .github/labeler.yml
+      # secrets:
+      #   envPAT: ${{ secrets.envPAT }}
+
+  blueprint-ci:
+      uses: windsorcli/blueprint/.github/workflows/blueprint-ci.yaml@main
+      # with:
+      #   config-path: .github/labeler.yml
+      # secrets:
+      #   envPAT: ${{ secrets.envPAT }}
+
+  blueprint-checkov:
+      uses: windsorcli/blueprint/.github/workflows/blueprint-checkov.yaml@main
+      # with:
+      #   config-path: .github/labeler.yml
+      # secrets:
+      #   envPAT: ${{ secrets.envPAT }}
+        
